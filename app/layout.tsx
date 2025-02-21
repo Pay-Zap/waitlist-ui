@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Typography from "@components/typography";
 
 export const metadata: Metadata = {
   title: "Payzap - Go Cashless | Secure Digital Payments",

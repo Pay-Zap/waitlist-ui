@@ -2,30 +2,9 @@ import Typography from "@components/typography";
 import LogoSvg from "@components/svg/logo";
 import OnlineSvg from "@components/svg/online";
 import ZapSvg from "@components/svg/zap";
-import Input from "@components/input";
-import Button from "@components/button";
-import PlaneIcon from "@components/svg/plane";
 import SubscribeForm from "@/components/subscribeform";
 
 export default function Home() {
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.currentTarget as HTMLFormElement);
-    const email = formData.get("email") as string;
-
-    const res = await fetch("/api/subscribe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, name: email }),
-    });
-
-    const data = await res.json();
-    console.log(data);
-  };
-
   return (
     <section className="relative flex items-center justify-center">
       <ZapSvg className="absolute left-1/2 top-1/2 z-0 max-h-full w-screen max-w-[33.5625rem] -translate-x-1/2 -translate-y-1/2 overflow-hidden" />
