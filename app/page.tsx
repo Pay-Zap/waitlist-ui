@@ -1,101 +1,67 @@
-import Image from "next/image";
+import Typography from "@components/typography";
+import LogoSvg from "@components/svg/logo";
+import OnlineSvg from "@components/svg/online";
+import ZapSvg from "@components/svg/zap";
+import Input from "@components/input";
+import Button from "@components/button";
+import PlaneIcon from "@components/svg/plane";
+import SubscribeForm from "@/components/subscribeform";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    const formData = new FormData(e.currentTarget as HTMLFormElement);
+    const email = formData.get("email") as string;
+
+    const res = await fetch("/api/subscribe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, name: email }),
+    });
+
+    const data = await res.json();
+    console.log(data);
+  };
+
+  return (
+    <section className="relative flex items-center justify-center">
+      <ZapSvg className="absolute left-1/2 top-1/2 z-0 max-h-full w-screen max-w-[33.5625rem] -translate-x-1/2 -translate-y-1/2 overflow-hidden" />
+
+      <div className="container z-10 flex h-screen max-w-[47rem] flex-col items-center justify-center pl-4 pr-4">
+        <div className="flex flex-col items-center justify-center">
+          <LogoSvg className="max-w-[40px] md:max-w-[3.375rem]" />
+          <div className="z-10 mt-6 flex flex-row items-center justify-center gap-2">
+            <OnlineSvg />
+            <Typography type="h6" classes="text-white">
+              Available in 2026
+            </Typography>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Typography
+          type="h1"
+          classes="mt-2 text-center text-white md:text-[4rem] md:leading-[64px]"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          Be the first to experience{" "}
+          <span className="text-brand-300">cashless freedom!</span>
+        </Typography>
+        <Typography classes="text-white text-center mt-6 text-grey-200 pl-4 pr-4 max-w-[36rem]">
+          <span className="font-normal text-white">Join the waitlist</span> and
+          take the first step towards seamless and secure digital transactions.
+          <span className="font-normal text-white">
+            Your journey to a cashless lifestyle starts here!
+          </span>
+        </Typography>
+
+        <SubscribeForm />
+
+        <Typography classes="text-grey-500 text-base font-normal leading-normal mt-3">
+          Join <span className="text-brand-300">3,500+ </span>others on the
+          waitlist
+        </Typography>
+      </div>
+    </section>
   );
 }
