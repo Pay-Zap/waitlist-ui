@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Payzap",
     images: [
       {
-        url: "/assets/social-preview.jpg",
+        url: "/assets/og.png",
         width: 1200,
         height: 630,
         alt: "Payzap - Go Cashless",
@@ -37,6 +37,12 @@ export const metadata: Metadata = {
     locale: "en_PK",
     type: "website",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({

@@ -2,7 +2,7 @@ import Typography from "@components/typography";
 import LogoSvg from "@components/svg/logo";
 import OnlineSvg from "@components/svg/online";
 import ZapSvg from "@components/svg/zap";
-import SubscribeForm from "@/components/subscribeform";
+import SubscribeForm from "@components/subscribeform";
 
 export default function Home() {
   return (

@@ -1,17 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { subscribe } from "@/app/actions/subscribe";
 import Input from "../input";
 import Button from "../button";
 import PlaneIcon from "../svg/plane";
+import Confetti from "../confetti";
 
 const SubscribeForm: React.FunctionComponent = () => {
   const [message, setMessage] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setMessage("Submitting...");
+    setIsVisible(false);
     const formData = new FormData(e.currentTarget as HTMLFormElement);
     console.log(formData);
 
@@ -20,7 +23,8 @@ const SubscribeForm: React.FunctionComponent = () => {
     if (result?.error) {
       setMessage(result.error);
     } else {
-      setMessage(result.success || "Subscribed successfully!");
+      setMessage("Subscribed successfully 🎉");
+      setIsVisible(true);
     }
   }
 
@@ -35,6 +39,7 @@ const SubscribeForm: React.FunctionComponent = () => {
         <PlaneIcon /> Join Waitlist
       </Button>
       {message && <p className="text-center text-white">{message}</p>}
+      {isVisible && <Confetti />}
     </form>
   );
 };
