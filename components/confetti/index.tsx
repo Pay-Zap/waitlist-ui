@@ -14,7 +14,7 @@ export default function Confetti() {
 
   const makeShot = useCallback(
     (particleRatio: number, opts: TCanvasConfettiAnimationOptions) => {
-      refAnimationInstance.current &&
+      if (refAnimationInstance.current)
         refAnimationInstance.current({
           ...opts,
           origin: { y: 0.7 },
@@ -23,8 +23,6 @@ export default function Confetti() {
     },
     [],
   );
-
-  useEffect(() => fire(), []);
 
   const fire = useCallback(() => {
     makeShot(0.25, {
@@ -54,6 +52,8 @@ export default function Confetti() {
       startVelocity: 45,
     });
   }, [makeShot]);
+
+  useEffect(() => fire(), [fire]);
 
   return <ReactCanvasConfetti onInit={onInitHandler} />;
 }

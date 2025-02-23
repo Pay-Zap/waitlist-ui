@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { subscribe } from "@/app/actions/subscribe";
 import Input from "../input";
 import Button from "../button";
