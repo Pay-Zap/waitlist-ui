@@ -3,6 +3,7 @@ import LogoSvg from "@components/svg/logo";
 import OnlineSvg from "@components/svg/online";
 import ZapSvg from "@components/svg/zap";
 import SubscribeForm from "@components/subscribeform";
+import Footer from "@components/footer";
 
 export default function Home() {
   return (
@@ -41,6 +42,8 @@ export default function Home() {
           waitlist
         </Typography>
       </div>
+
+      <Footer />
     </section>
   );
 }
