@@ -290,12 +290,6 @@ export default function PrivacyPage() {
           <br />
           Address: Lahore, Pakistan
         </p>
-
-        <div className={styles.footer}>
-          This Privacy Policy is provided for informational purposes and does
-          not constitute legal advice. Please consult your counsel to adapt it
-          to your specific products, jurisdictions, and regulatory obligations.
-        </div>
       </div>
     </div>
   );
