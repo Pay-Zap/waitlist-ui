@@ -2,26 +2,15 @@
   max-width: 880px;
   margin: 0 auto;
   padding: 40px 20px 120px;
-  background: #0b0f1a;
-  color: #e6eaf2;
-  font-family:
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    Ubuntu,
-    Cantarell,
-    "Noto Sans",
-    "Helvetica Neue",
-    Arial,
-    "Apple Color Emoji",
-    "Segoe UI Emoji";
+  background: #101703;
+  color: #ffffff;
+  font-family: "Satoshi", sans-serif;
   min-height: 100vh;
 }
 
 .card {
-  background: #0f1524;
-  border: 1px solid #1b243a;
+  background: #013216;
+  border: 1px solid #809388;
   border-radius: 18px;
   padding: 28px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
@@ -30,48 +19,49 @@
 .card h1 {
   font-size: 2.2rem;
   margin: 0 0 10px;
-  color: #e6eaf2;
+  color: #ffffff;
 }
 
 .card h2 {
   font-size: 1.35rem;
   margin: 28px 0 10px;
-  color: #e6eaf2;
+  color: #ffffff;
 }
 
 .card h3 {
   font-size: 1.05rem;
   margin: 18px 0 6px;
-  color: #e6eaf2;
+  color: #ffffff;
 }
 
 .card p,
 .card li {
   line-height: 1.6;
-  color: #aab2c8;
+  color: #bfc9c3;
 }
 
 .card a {
-  color: #6ea8fe;
+  color: #b6eb47;
   text-decoration: none;
 }
 
 .card a:hover {
   text-decoration: underline;
+  color: #b6eb47;
 }
 
 .muted {
-  color: #aab2c8;
+  color: #bfc9c3;
 }
 
 .badge {
   display: inline-block;
   padding: 4px 10px;
   border-radius: 999px;
-  background: #0b1222;
-  border: 1px solid #1b243a;
+  background: rgba(182, 235, 71, 0.1);
+  border: 1px solid #809388;
   font-size: 12px;
-  color: #aab2c8;
+  color: #b6eb47;
 }
 
 .kicker {
@@ -89,17 +79,18 @@
 }
 
 .navLink {
-  color: #6ea8fe;
+  color: #b6eb47;
   text-decoration: none;
   padding: 8px 12px;
-  border: 1px solid #1b243a;
+  border: 1px solid #809388;
   border-radius: 8px;
-  background: #0c1323;
-  transition: background-color 0.2s ease;
+  background: rgba(182, 235, 71, 0.05);
+  transition: all 0.2s ease;
 }
 
 .navLink:hover {
-  background: #141b2e;
+  background: rgba(182, 235, 71, 0.15);
+  border-color: #b6eb47;
 }
 
 .toc {
@@ -113,21 +104,22 @@
   text-decoration: none;
   display: block;
   padding: 10px 12px;
-  background: #0c1323;
-  border: 1px solid #1b243a;
+  background: rgba(182, 235, 71, 0.05);
+  border: 1px solid #809388;
   border-radius: 12px;
-  color: #6ea8fe;
-  transition: background-color 0.2s ease;
+  color: #b6eb47;
+  transition: all 0.2s ease;
 }
 
 .toc a:hover {
-  background: #141b2e;
+  background: rgba(182, 235, 71, 0.15);
+  border-color: #b6eb47;
 }
 
 .footer {
   font-size: 0.9rem;
   margin-top: 32px;
-  color: #aab2c8;
+  color: #809388;
   font-style: italic;
 }
 
@@ -141,9 +133,9 @@
 }
 
 .card strong {
-  color: #e6eaf2;
+  color: #ffffff;
 }
 
 .card em {
-  color: #6ea8fe;
+  color: #b6eb47;
 }
